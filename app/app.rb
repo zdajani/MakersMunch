@@ -3,6 +3,10 @@ require './app/data_mapper_setup.rb'
 require 'sinatra/flash'
 
 class MakersMunch < Sinatra::Base
+  run! if app_file == $0
+  enable :sessions
+  register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/restaurant/new' do
     erb :'restaurant/new'
@@ -27,11 +31,6 @@ class MakersMunch < Sinatra::Base
     erb :'restaurant/list'
   end
 
-  run! if app_file == $0
-  enable :sessions
-  register Sinatra::Flash
-
-
   get '/' do
     erb :index
   end
@@ -41,7 +40,7 @@ class MakersMunch < Sinatra::Base
     erb :'user/new'
   end
 
-  post '/user' do
+  post '/user/new' do
     @user = User.create(full_name: params[:full_name],  email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
 
     if @user.save
@@ -52,6 +51,28 @@ class MakersMunch < Sinatra::Base
       erb :'user/new'
     end
   end
+
+  get '/log_in' do
+    erb :'session/new'
+  end
+
+  post '/log_in' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'session/new'
+    end
+  end
+
+  delete '/log_in' do
+    session[:user_id] = nil
+    flash[:notice] = 'Goodbye!'
+    redirect to('/')
+  end
+
 
   helpers do
       def current_user

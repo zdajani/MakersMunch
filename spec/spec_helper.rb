@@ -15,7 +15,7 @@ require_relative './factories/tag.rb'
 
 require_relative './helpers/new_restaurant'
 
-require_relative './helpers/sign_in_up.rb'
+require_relative './helpers/sign_up_log_in.rb'
 
 Capybara.app = MakersMunch
 
