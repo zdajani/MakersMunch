@@ -62,4 +62,10 @@ class MakersMunch < Sinatra::Base
   not_found do
     erb :error
   end
+
+  get '/tags/:name' do
+    tag = Tag.first(name: params[:name])
+    @restaurants = tag ? tag.restaurants : []
+    erb :'restaurant/list'
+  end
 end
