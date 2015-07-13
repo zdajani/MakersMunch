@@ -8,7 +8,7 @@ def sign_up(user)
 end
 
 def log_in(user)
-  visit '/user/log_in'
+  visit '/log_in'
   fill_in :email, with: user.email
   fill_in :password, with: user.password
   click_button 'Sign in'
