@@ -1,5 +1,9 @@
-
-<h1>Sign in</h1>
+<html>
+<head>
+  <!-- <link rel='stylesheet' type='text/css' href='/styles/main.css'> -->
+</head>
+<body class="body">
+<h1 id="title">Log in</h1>
 
   <form action='/user/log_in' method='post'>
   Email: <input type='text' name='email'>
@@ -21,3 +25,5 @@
       <%= flash[:notice] %>
     </div>
   <% end %>
+</body>
+</html>
