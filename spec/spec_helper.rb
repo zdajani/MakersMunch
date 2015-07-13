@@ -11,6 +11,8 @@ require_relative './factories/user.rb'
 
 require_relative './factories/restaurant.rb'
 
+require_relative './factories/tag.rb'
+
 require_relative './helpers/new_restaurant'
 
 require_relative './helpers/sign_up_log_in.rb'

@@ -13,8 +13,17 @@ class MakersMunch < Sinatra::Base
   end
 
   post '/restaurant/new' do
-    Restaurant.create(name: params[:name], post_code: params[:post_code])
-    redirect to('/restaurants')
+    @restaurant = Restaurant.create(name: params[:name], post_code: params[:post_code])
+    tags = params[:tag].split(' ')
+    tags.each do |tag|
+      @restaurant.tags << Tag.create(name: tag)
+    end
+    @restaurant.save
+    if @restaurant.save
+      redirect to('/restaurants')
+    else
+      flash.now[:errors] = @restaurant.errors.full_messages
+    end
   end
 
   get '/restaurants' do
@@ -70,4 +79,14 @@ class MakersMunch < Sinatra::Base
          @current_user ||= User.get(session[:user_id])
        end
     end
+
+  not_found do
+    erb :error
+  end
+
+  get '/tags/:name' do
+    tag = Tag.first(name: params[:name])
+    @restaurants = tag ? tag.restaurants : []
+    erb :'restaurant/list'
+  end
 end

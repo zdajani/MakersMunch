@@ -1,5 +1,15 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Sorry, there were the following problems with the form.
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <form action="/restaurant/new" method="POST">
   Name: <input type='text' name='name'>
   Post Code: <input type='text' name='post_code'>
+  Tag: <input type='text' name='tag'>
   <input type="submit" value="Create">
 </form>
