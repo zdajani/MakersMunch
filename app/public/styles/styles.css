@@ -32,13 +32,53 @@
   background-color: #FF7E26;
 }
 
+.log_button:link, .log_button:visited {
+  display: block;
+  font-weight: bold;
+  color: #D5D6D2;
+  background-color: #FF8D3F;
+  width: 60px;
+  text-align: center;
+  padding: 4px;
+  text-decoration: none;
+  font-family: "Poiret One";
+  border: solid;
+  border-radius: 75px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.log_button:hover, .log_button:active {
+  background-color: #FF7E26;
+}
+
 .boxed {
 
   border: 5px solid #756867;
-  height: 800px;
-  width: 800px;
+  height: 1000px;
+  width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  background-color: #756867;
+  border-radius: 10px;
+  color: #353C3F;
+  text-align: center;
+}
+
+#location {
+  border: 1px solid #BFC0BD;
+  width: 980px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #BFC0BD;
+  color: #353C3F;
+  font-family: "Poiret One";
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /*colour pallette is #756867 (wood veneer), #D5D6D2 (sand dollar), #353C3F (charcoal), #FF8D3F (orange)*/
