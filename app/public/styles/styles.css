@@ -68,7 +68,7 @@
 
 #location {
   border: 1px solid #BFC0BD;
-  width: 980px;
+  width: 960px;
   height: 300px;
   margin-left: auto;
   margin-right: auto;
@@ -79,6 +79,24 @@
   font-family: "Poiret One";
   font-size: 20px;
   font-weight: bold;
+  text-align: left;
+  padding-left: 15px;
+}
+
+#writing {
+  float: right;
+  padding: 70px 100px;
+}
+
+#placeName {
+  font-size: 25px;
+  font-style: bold;
+}
+
+#photo {
+  float: left;
+  height: 240px;
+  width: 300px;
 }
 
 /*colour pallette is #756867 (wood veneer), #D5D6D2 (sand dollar), #353C3F (charcoal), #FF8D3F (orange)*/
