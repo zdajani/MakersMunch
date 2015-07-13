@@ -7,7 +7,7 @@ require 'tilt/erb'
 require 'database_cleaner'
 require 'factory_girl'
 
-Capybara.app = MakerMunch
+Capybara.app = MakersMunch
 
 RSpec.configure do |config|
 
