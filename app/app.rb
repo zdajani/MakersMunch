@@ -10,6 +10,11 @@ class MakersMunch < Sinatra::Base
 
   post '/restaurant/new' do
     @restaurant = Restaurant.create(name: params[:name], post_code: params[:post_code])
+    tags = params[:tag].split(' ')
+    tags.each do |tag|
+      @restaurant.tags << Tag.create(name: tag)
+    end
+    @restaurant.save
     if @restaurant.save
       redirect to('/restaurants')
     else
