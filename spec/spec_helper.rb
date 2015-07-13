@@ -7,6 +7,8 @@ require 'tilt/erb'
 require 'database_cleaner'
 require 'factory_girl'
 
+require_relative './factories/user.rb'
+
 Capybara.app = MakersMunch
 
 RSpec.configure do |config|
