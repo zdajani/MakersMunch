@@ -1,4 +1,21 @@
 
+<h1>Sign in</h1>
+
+  <form action='/user/log_in' method='post'>
+  Email: <input type='text' name='email'>
+  Password: <input type='password' name='password'>
+  <input type='submit' value='Sign in'>
+  </form>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Sorry, there were the following problems with the form.
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <% if flash[:notice] %>
     <div id='notice'>
       <%= flash[:notice] %>
