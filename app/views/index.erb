@@ -10,9 +10,7 @@
     <input type='submit' value='Sign out'>
   </form>
   <%else%>
-    <form method="get" action="/user/new"
-      <button type="submit">Sign Up</button>
-    </form>
+    <a href="http://localhost:9292/user/new" class="button">Sign Up</a>
   <%end%>
 
   <% if flash[:notice] %>
