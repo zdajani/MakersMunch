@@ -10,7 +10,9 @@
     <input type='submit' value='Sign out'>
   </form>
   <%else%>
-    sign up
+    <form method="get" action="/user/new"
+      <button type="submit">Sign Up</button>
+    </form>
   <%end%>
 
   <% if flash[:notice] %>
