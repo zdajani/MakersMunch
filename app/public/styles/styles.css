@@ -1,5 +1,14 @@
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+
 .body {
   background-color: #D5D6D2;
+}
+
+#title {
+  text-align: center;
+  color: #FF8D3F;
+  font-size: 75px;
+  font-family: "Poiret One";
 }
 
 /*colour pallette is #756867 (wood veneer), #D5D6D2 (sand dollar), #353C3F (charcoal), #FF8D3F (orange)*/
