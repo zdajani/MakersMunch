@@ -18,10 +18,10 @@ class User
   end
 
   validates_confirmation_of :password
-  validates_presence_of :full_name, :email, :username, :password
+  validates_presence_of :full_name, :email, :password
 
-  def self.authenticate(username:, password:)
-    user = first(username: username)
+  def self.authenticate(email:, password:)
+    user = first(email: email)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else
