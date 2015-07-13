@@ -16,7 +16,12 @@ class MakersMunch < Sinatra::Base
     @restaurant = Restaurant.create(name: params[:name], post_code: params[:post_code])
     tags = params[:tag].split(' ')
     tags.each do |tag|
-      @restaurant.tags << Tag.create(name: tag)
+    tag_exist = Tag.first(:name => tag)
+      if tag_exist
+        @restaurant.tags << tag_exist
+      else
+        @restaurant.tags << Tag.create(name: tag)
+      end
     end
     @restaurant.save
     if @restaurant.save
@@ -85,8 +90,18 @@ class MakersMunch < Sinatra::Base
   end
 
   get '/tags/:name' do
-    tag = Tag.first(name: params[:name])
+    tag = Tag.all(name: params[:name])
     @restaurants = tag ? tag.restaurants : []
     erb :'restaurant/list'
+  end
+
+  get '/dropdown' do
+    @tags = Tag.all
+    erb :dropdown
+  end
+
+  post '/dropdown' do
+    tag = params[:food_tags]
+    redirect to("/tags/#{tag}")
   end
 end
