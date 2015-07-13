@@ -8,6 +8,7 @@ require 'database_cleaner'
 require 'factory_girl'
 
 require_relative './factories/user.rb'
+require_relative './factories/restaurant.rb'
 
 Capybara.app = MakersMunch
 
