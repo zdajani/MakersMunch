@@ -1,0 +1,8 @@
+<ul id="restaurants">
+  <% @restaurants.each do |restaurant| %>
+  <li>
+    Name: <%= restaurant.name %>
+    Post Code: <%= restaurant.post_code %>
+  </li>
+  <% end %>
+</ul>

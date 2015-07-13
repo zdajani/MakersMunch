@@ -10,6 +10,8 @@ require 'factory_girl'
 require_relative './factories/user.rb'
 require_relative './factories/restaurant.rb'
 
+require_relative './helpers/new_restaurant'
+
 Capybara.app = MakersMunch
 
 RSpec.configure do |config|
