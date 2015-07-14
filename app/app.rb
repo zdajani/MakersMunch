@@ -14,7 +14,9 @@ class MakersMunch < Sinatra::Base
 
   post '/restaurant/new' do
     @restaurant = Restaurant.create(name: params[:name], post_code: params[:post_code])
-    tags = params[:tag].split(' ')
+    tags = []
+    tags << params[:tag1]
+    tags << params[:tag2]
     tags.each do |tag|
     tag_exist = Tag.first(:name => tag)
       if tag_exist

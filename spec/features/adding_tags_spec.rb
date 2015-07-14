@@ -16,6 +16,6 @@ feature 'Adding tags' do
     new_restaurant(restaurant)
     restaurant = Restaurant.first
     expect(restaurant.tags.map(&:name)).to include('Sandwich')
-    expect(restaurant.tags.map(&:name)).to include('FastFood')
+    expect(restaurant.tags.map(&:name)).to include('Fast Food')
   end
 end
