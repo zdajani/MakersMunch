@@ -1,14 +1,7 @@
 <html>
 
  <head>
-   <% if flash[:errors] && !flash[:errors].empty? %>
-     Sorry, there were the following problems with the form.
-     <ul id='errors'>
-       <% flash[:errors].each do |error| %>
-         <li><%= error %></li>
-       <% end %>
-     </ul>
-   <% end %>
+
    <style>
      html, body,
      #map-canvas {
@@ -98,7 +91,14 @@
    </div>
   </div>
    <div id="map-canvas"></div>
-
+   <% if flash[:errors] && !flash[:errors].empty? %>
+     Sorry, there were the following problems with the form.
+     <ul id='errors'>
+       <% flash[:errors].each do |error| %>
+         <li><%= error %></li>
+       <% end %>
+     </ul>
+   <% end %>
  </body>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script type="text/javascript" src="/googleLocationApi.js"></script>
