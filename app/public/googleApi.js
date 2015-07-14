@@ -32,12 +32,16 @@ function getApiDetails(placeId) {
                             if (results.address_components[6]) { + results.address_components[6].short_name } + "</div>";
     html += "<div>" + results.formatted_phone_number + "</div>";
     html += "<div> Is it open right now? "
-    if (results.opening_hours.open_now === true) {
-      html += " Yes! </div>"
+    if (results.opening_hours) {
+      if
+      (results.opening_hours.open_now === true) {
+        html += " Yes! </div>"
+      }
+      else {
+        html += " No! </div>"
+      }
     }
-    else {
-      html += " No! </div>"
-    }
+
     html += "</div>"
     $('#boxed').append(html);
   });
