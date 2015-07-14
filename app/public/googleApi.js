@@ -19,8 +19,11 @@ function getApiDetails(placeId) {
     html += '<div id="location">';
     html += "<div id='placeName'>" + results.name + "</div>";
     if(results.photos) {
-    photoUrl = results.photos[0].getUrl({maxWidth:1000, maxHeight: 1000});
+      photoUrl = results.photos[0].getUrl({maxWidth:1000, maxHeight: 1000});
     html += "<div id='photo'><img src='" + photoUrl + "' width = '200px' height = '200px'></div>";
+    }
+  else {
+    html += "<div id='photo'><img src='/no-photo.jpg' width = '200px' height = '200px'></div>";
   }
     html += "<div id=writing>"
                                + results.address_components[0].short_name +
