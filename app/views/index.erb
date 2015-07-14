@@ -2,7 +2,10 @@
     <h1 id="title"> Munch </h1>
     <br>
     <%if current_user %>
-      
+      <form method='post' action='/log_in'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log Out' class="Log_out">
+      </form>
     <%else%>
       <a href="/user/new" class="button">Sign Up</a>
       <a href="/log_in" class="log_button">Log In</a>

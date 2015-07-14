@@ -81,16 +81,15 @@ class MakersMunch < Sinatra::Base
 
   delete '/log_in' do
     session[:user_id] = nil
-    flash[:notice] = 'Goodbye!'
     redirect to('/')
   end
 
 
   helpers do
-      def current_user
-         @current_user ||= User.get(session[:user_id])
-       end
+    def current_user
+      @current_user ||= User.get(session[:user_id])
     end
+  end
 
   not_found do
     erb :error
