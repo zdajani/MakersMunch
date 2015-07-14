@@ -29,10 +29,10 @@ function initialize() {
 
     var place = autocomplete.getPlace();
 
-    if (!place.geometry) {
-    window.alert("Autocomplete's returned place contains no geometry");
-    return;
-    }
+    // if (!place.geometry) {
+    // window.alert("Autocomplete's returned place contains no geometry");
+    // return;
+    // }
 
     if (place.geometry.viewport) {
     map.fitBounds(place.geometry.viewport);
@@ -77,6 +77,27 @@ function initialize() {
 
     var val = componentForm.place_id = place.place_id;
     document.getElementById('place_id').value = val;
+  }
+
+  function preventEnterSubmit(e) {
+     if (e.which == 13) {
+         var $targ = $(e.target);
+
+         if (!$targ.is("textarea") && !$targ.is(":button,:submit")) {
+             var focusNext = false;
+             $(this).find(":input:visible:not([disabled],[readonly]), a").each(function(){
+                 if (this === e.target) {
+                     focusNext = true;
+                 }
+                 else if (focusNext){
+                     $(this).focus();
+                     return false;
+                 }
+             });
+
+             return false;
+         }
+     }
   }
 }
 
