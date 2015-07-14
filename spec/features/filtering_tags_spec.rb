@@ -7,7 +7,7 @@ feature 'filtering selected tags' do
   end
 
   it 'can filter restaurants from drop down' do
-    visit '/dropdown'
+    visit '/'
     select("Pizza", :from => "food_tags")
     click_button 'Find!'
     # expect(page).to have_content('Pizza Hut')
