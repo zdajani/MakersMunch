@@ -1,50 +1,107 @@
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Sorry, there were the following problems with the form.
-  <ul id='errors'>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+<html>
 
-<form action="/restaurant/new" method="POST">
-  Name: <input type='text' name='name'>
-  Place ID: <input type='text' name='place_id'>
-  Tag: <select name="tag1">
-    <option>Pizza</option>
-    <option>Pasta</option>
-    <option>Burger</option>
-    <option>Street Food</option>
-    <option>Chicken</option>
-    <option>Chinese</option>
-    <option>Sushi</option>
-    <option>Mexican</option>
-    <option>Japanese</option>
-    <option>Sandwich</option>
-    <option>Fast Food</option>
-    <option>Indian</option>
-    <option>Thai</option>
-    <option>Cafe</option>
-    <option>Pub</option>
-        </select>
+ <head>
+   <% if flash[:errors] && !flash[:errors].empty? %>
+     Sorry, there were the following problems with the form.
+     <ul id='errors'>
+       <% flash[:errors].each do |error| %>
+         <li><%= error %></li>
+       <% end %>
+     </ul>
+   <% end %>
+   <style>
+     html, body,
+     #map-canvas {
+       height: 100%;
+       margin: 50px;
+       padding: 50px
+     }
+     .controls {
+       margin-top: 16px;
+       border: 1px solid transparent;
+       border-radius: 2px 0 0 2px;
+       box-sizing: border-box;
+       -moz-box-sizing: border-box;
+       height: 32px;
+       outline: none;
+       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+     }
 
-        <select name="tag2">
-          <option></option>
-          <option>Pizza</option>
-          <option>Pasta</option>
-          <option>Burger</option>
-          <option>Street Food</option>
-          <option>Chicken</option>
-          <option>Chinese</option>
-          <option>Sushi</option>
-          <option>Mexican</option>
-          <option>Japanese</option>
-          <option>Sandwich</option>
-          <option>Fast Food</option>
-          <option>Indian</option>
-          <option>Thai</option>
-          <option>Cafe</option>
-          <option>Pub</option>
-              </select>
-  <input type="submit" value="Create">
-</form>
+     #address {
+       background-color: #fff;
+       font-family: Roboto;
+       font-size: 12px;
+       font-weight: 300;
+       margin-left: 12px;
+       padding: 10px 11px 10px 13px;
+       text-overflow: ellipsis;
+       width: 400px;
+       height: 20px;
+     }
+
+     #address:focus {
+       border-color: #4d90fe;
+     }
+
+     .pac-container {
+       font-family: Roboto;
+     }
+
+   </style>
+
+
+ </head>
+ <body onload="initialize()">
+   <div id="locationField">
+    <form id="form" action="/restaurant/new" method="POST">
+      <input id="address" placeholder="Location Finder" type="text" name='name'>
+      <input id='place_id' disabled='false' name='place_id' type='hidden'>
+      Tag: <select name="tag1">
+            <option selected="selected"></option>
+             <option>Pizza</option>
+             <option>Pasta</option>
+             <option>Burger</option>
+             <option>Street Food</option>
+             <option>Chicken</option>
+             <option>Chinese</option>
+             <option>Sushi</option>
+             <option>Mexican</option>
+             <option>Japanese</option>
+             <option>Sandwich</option>
+             <option>Fast Food</option>
+             <option>Indian</option>
+             <option>Thai</option>
+             <option>Cafe</option>
+             <option>Pub</option>
+     </select>
+
+     <select name="tag2">
+       <option selected="selected"></option>
+       <option>Pizza</option>
+       <option>Pasta</option>
+       <option>Burger</option>
+       <option>Street Food</option>
+       <option>Chicken</option>
+       <option>Chinese</option>
+       <option>Sushi</option>
+       <option>Mexican</option>
+       <option>Japanese</option>
+       <option>Sandwich</option>
+       <option>Fast Food</option>
+       <option>Indian</option>
+       <option>Thai</option>
+       <option>Cafe</option>
+       <option>Pub</option>
+           </select>
+         <input type="submit" value="Create">
+       </form>
+   </div>
+  </div>
+   <div id="map-canvas"></div>
+
+ </body>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script type="text/javascript" src="/googleLocationApi.js"></script>
+
+
+</html>
