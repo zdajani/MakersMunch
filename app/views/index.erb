@@ -16,37 +16,46 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-
-    <form action="/dropdown" method="post">
-      <select name="food_tags">
-        <option>Pizza</option>
-        <option>Pasta</option>
-        <option>Burger</option>
-        <option>Street Food</option>
-        <option>Chicken</option>
-        <option>Chinese</option>
-        <option>Sushi</option>
-        <option>Mexican</option>
-        <option>Japanese</option>
-        <option>Sandwich</option>
-        <option>Fast Food</option>
-        <option>Indian</option>
-        <option>Thai</option>
-        <option>Cafe</option>
-        <option>Pub</option>
-      </select>
-      <input type="submit" value="Find!">
-    </form>
+    <div class="row">
+    <div class="col-md-4"> </div>
+    <div class="col-md-4">
+      <form action="/dropdown" method="post" class="dropdown">
+        <select name="food_tags" class="dropdown">
+          <option>Pizza</option>
+          <option>Pasta</option>
+          <option>Burger</option>
+          <option>Street Food</option>
+          <option>Chicken</option>
+          <option>Chinese</option>
+          <option>Sushi</option>
+          <option>Mexican</option>
+          <option>Japanese</option>
+          <option>Sandwich</option>
+          <option>Fast Food</option>
+          <option>Indian</option>
+          <option>Thai</option>
+          <option>Cafe</option>
+          <option>Pub</option>
+        </select>
+        <input type="submit" value="Filter" class="find">
+      </form>
+      <% if current_user %>
+      <a href="/restaurant/new" class="add_button">Add a restaurant</a>
+      <% end %>
+    </div>
+    <div class="col-md-4"> </div>
+  </div>
+  <br>
 
     <div id='map'> </div>
-    <div id="boxed" style="overflow-y:scroll">
+      <div id="boxed" style="overflow-y:scroll">
       <% @restaurants.each do |restaurant| %>
+        <!-- <div id="location"> -->
         <script>
           var place_id = '<%=restaurant.place_id%>';
           getApiDetails(place_id);
         </script>
       <% end %>
       </div>
-    </div>
   </body>
 </html>

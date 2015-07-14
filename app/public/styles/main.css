@@ -5,10 +5,16 @@
 }
 
 #title {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   color: #AF1C1C;
   font-size: 75px;
   font-family: "Poiret One";
-  padding-right: 100px
+  text-align: center;
+}
+
+#my-form {
+  width: 600px;
+  position: absolute;
+  margin: 0px 0 0 -250px;
+  left: 50%;
 }
