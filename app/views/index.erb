@@ -1,5 +1,6 @@
   <body class= "body">
     <h1 id="title"> Munch </h1>
+    <br>
   <%if current_user %>
   <form method='post' action='/log_in'>
     <input type='hidden' name='_method' value='delete'>
@@ -18,14 +19,13 @@
   <div id='map'> </div>
   <div id="boxed" style="overflow-y:scroll">
    <% @restaurants.each do |restaurant| %>
-
+  </div>
   <script src='googleApi.js'> </script>
-      <script>
+    <script>
       var place_id = '<%= restaurant.place_id%>';
       getApiDetails(place_id);
-      </script>
+    </script>
       <% end %>
-      </div>
     </div>
   </div>
   </body>

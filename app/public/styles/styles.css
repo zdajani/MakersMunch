@@ -9,6 +9,7 @@
   color: #AF1C1C;
   font-size: 75px;
   font-family: "Poiret One";
+  padding-left: 75px
 }
 
 .button:link, .button:visited {
@@ -53,7 +54,7 @@
   background-color: #8C1616;
 }
 
-.boxed {
+#boxed {
 
   border: 5px solid #2F2F28;
   height: 1000px;
