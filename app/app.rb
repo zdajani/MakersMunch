@@ -95,7 +95,7 @@ class MakersMunch < Sinatra::Base
   get '/tags/:name' do
     tag = Tag.all(name: params[:name])
     @restaurants = tag ? tag.restaurants : []
-    erb :'restaurant/list'
+    erb :index
   end
 
   get '/dropdown' do
