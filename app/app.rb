@@ -27,7 +27,7 @@ class MakersMunch < Sinatra::Base
     end
     @restaurant.save
     if @restaurant.save
-      redirect to('/restaurants')
+      redirect to('/')
     else
       flash.now[:errors] = @restaurant.errors.full_messages
     end
@@ -39,6 +39,7 @@ class MakersMunch < Sinatra::Base
   end
 
   get '/' do
+    @restaurants = Restaurant.all
     erb :index
   end
 
