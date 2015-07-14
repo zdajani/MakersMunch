@@ -22,6 +22,8 @@ class MakersMunch < Sinatra::Base
       if tag_exist
         @restaurant.tags << tag_exist
       else
+        tag = tag.split
+        tag = tag.join
         @restaurant.tags << Tag.create(name: tag)
       end
     end
@@ -105,6 +107,8 @@ class MakersMunch < Sinatra::Base
 
   post '/dropdown' do
     tag = params[:food_tags]
+    tag = tag.split
+    tag = tag.join
     redirect to("/tags/#{tag}")
   end
 end
