@@ -9,7 +9,7 @@ class MakersMunch < Sinatra::Base
   use Rack::MethodOverride
 
   get '/restaurant/new' do
-    if current_user 
+    if current_user
       erb :'restaurant/new'
     else
       redirect '/'
@@ -31,11 +31,11 @@ class MakersMunch < Sinatra::Base
         @restaurant.tags << Tag.create(name: tag)
       end
     end
-    @restaurant.save
     if @restaurant.save
       redirect to('/')
     else
       flash.now[:errors] = @restaurant.errors.full_messages
+      erb :'restaurant/new'
     end
   end
 
