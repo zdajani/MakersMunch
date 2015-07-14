@@ -15,15 +15,19 @@ function getApiDetails(placeId) {
 
   service = new google.maps.places.PlacesService(map);
   service.getDetails(request, function(results, status) {
+    console.log(results);
     html += '<div id="location">';
     html += "<div id='placeName'>" + results.name + "</div>";
     if(results.photos[0]) {
     photoUrl = results.photos[0].getUrl({maxWidth:1000, maxHeight: 1000});
     html += "<div id='photo'><img src='" + photoUrl + "' width = '200px' height = '200px'></div>";
   }
-    html += "<div id=writing>" + results.adr_address + "</div>";
+    html += "<div id=writing>" + results.address_components[0].short_name +
+                           " " + results.address_components[1].short_name +
+                           " " + results.address_components[2].short_name + "</br>"
+                               + results.address_components[6].short_name + "</div>";
     html += "<div>" + results.formatted_phone_number + "</div>";
-    html += "<div> Is it open right now? "
+    html += "<div> Is it open right now?"
     if (results.opening_hours.open_now == true) {
       html += " Yes! </div>"
     }
