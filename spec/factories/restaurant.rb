@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :restaurant do
-    name 'subway'
-    place_id 'E1 6BD'
+    name 'Subway'
+    place_id 'ChIJIQ6gHUrY2EcRWWZ6tRzJFFg'
   end
 end

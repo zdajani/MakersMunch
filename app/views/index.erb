@@ -18,10 +18,8 @@
   <div id='map'> </div>
   <div id="boxed" style="overflow-y:scroll">
    <% @restaurants.each do |restaurant| %>
-
-  <script src='googleApi.js'> </script>
       <script>
-      var place_id = '<%= restaurant.place_id%>';
+      var place_id = '<%=restaurant.place_id%>';
       getApiDetails(place_id);
       </script>
       <% end %>
