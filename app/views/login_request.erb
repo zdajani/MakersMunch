@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='/styles/error.css'>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h2 class="error_message">You are not signed in</h2>
+        </div>
+    </div>
+
+    <div class="redirect">
+      <div class="container">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <p> Please Log in or sign up to access this page </p>
+          <span style="float:right;">
+            <form action="/user/new">
+              <input type="submit" value="Sign up" class="btn btn-danger btn-lg">
+            </form>
+          </span>
+          <span style="float:left;">
+            <form action="/log_in">
+              <input type="submit" value="Log in" class="btn btn-danger btn-lg">
+            </form>
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

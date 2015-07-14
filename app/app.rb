@@ -12,7 +12,7 @@ class MakersMunch < Sinatra::Base
     if current_user
       erb :'restaurant/new'
     else
-      redirect '/'
+      erb :login_request
     end
   end
 
