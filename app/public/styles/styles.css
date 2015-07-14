@@ -10,6 +10,7 @@
   font-size: 75px;
   font-family: "Poiret One";
   padding-left: 75px
+
 }
 
 .button:link, .button:visited {
@@ -120,5 +121,37 @@
 .Log_out:hover {
   background-color: #8C1616;
 }
+
+.dropdown {
+  font-family: "Poiret One";
+  border: 0;
+  font-size: 30px;
+  display: block;
+  margin: auto;
+  padding-right: 25px;
+}
+
+.find {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #F0EFF0;
+  background-color: #AF1C1C;
+  width: 60px;
+  text-align: center;
+  padding: 2px;
+  text-decoration: none;
+  font-family: "Poiret One";
+  border: solid;
+  border-radius: 75px;
+  font-size: 20px;
+}
+
+.find:hover, .find:active {
+  background-color: #8C1616;
+}
+
 
 /*colour pallette is #756867 (wood veneer), #D5D6D2 (sand dollar), #353C3F (charcoal), #FF8D3F (orange)*/
