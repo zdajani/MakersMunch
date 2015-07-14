@@ -9,7 +9,11 @@ class MakersMunch < Sinatra::Base
   use Rack::MethodOverride
 
   get '/restaurant/new' do
-    erb :'restaurant/new'
+    if current_user 
+      erb :'restaurant/new'
+    else
+      redirect '/'
+    end
   end
 
   post '/restaurant/new' do
@@ -22,12 +26,14 @@ class MakersMunch < Sinatra::Base
       if tag_exist
         @restaurant.tags << tag_exist
       else
+        tag = tag.split
+        tag = tag.join
         @restaurant.tags << Tag.create(name: tag)
       end
     end
     @restaurant.save
     if @restaurant.save
-      redirect to('/restaurants')
+      redirect to('/')
     else
       flash.now[:errors] = @restaurant.errors.full_messages
     end
@@ -39,6 +45,7 @@ class MakersMunch < Sinatra::Base
   end
 
   get '/' do
+    @restaurants = Restaurant.all
     erb :index
   end
 
@@ -76,16 +83,15 @@ class MakersMunch < Sinatra::Base
 
   delete '/log_in' do
     session[:user_id] = nil
-    flash[:notice] = 'Goodbye!'
     redirect to('/')
   end
 
 
   helpers do
-      def current_user
-         @current_user ||= User.get(session[:user_id])
-       end
+    def current_user
+      @current_user ||= User.get(session[:user_id])
     end
+  end
 
   not_found do
     erb :error
@@ -94,7 +100,7 @@ class MakersMunch < Sinatra::Base
   get '/tags/:name' do
     tag = Tag.all(name: params[:name])
     @restaurants = tag ? tag.restaurants : []
-    erb :'restaurant/list'
+    erb :index
   end
 
   get '/dropdown' do
@@ -104,6 +110,8 @@ class MakersMunch < Sinatra::Base
 
   post '/dropdown' do
     tag = params[:food_tags]
+    tag = tag.split
+    tag = tag.join
     redirect to("/tags/#{tag}")
   end
 end

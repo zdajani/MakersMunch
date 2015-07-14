@@ -11,5 +11,5 @@ def log_in(user)
   visit '/log_in'
   fill_in :email, with: user.email
   fill_in :password, with: user.password
-  click_button 'Sign in'
+  click_button 'Log In'
 end

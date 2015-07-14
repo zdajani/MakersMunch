@@ -9,6 +9,7 @@
   color: #AF1C1C;
   font-size: 75px;
   font-family: "Poiret One";
+  padding-left: 75px
 }
 
 .button:link, .button:visited {
@@ -16,7 +17,7 @@
   font-weight: bold;
   color: #F0EFF0;
   background-color: #AF1C1C;
-  width: 60px;
+  width: 70px;
   text-align: center;
   padding: 4px;
   text-decoration: none;
@@ -37,7 +38,7 @@
   font-weight: bold;
   color: #F0EFF0;
   background-color: #AF1C1C;
-  width: 60px;
+  width: 70px;
   text-align: center;
   padding: 4px;
   text-decoration: none;
@@ -53,7 +54,7 @@
   background-color: #8C1616;
 }
 
-.boxed {
+#boxed {
 
   border: 5px solid #2F2F28;
   height: 1000px;
@@ -97,6 +98,27 @@
   float: left;
   height: 240px;
   width: 300px;
+}
+
+.Log_out {
+  display: block;
+  font-weight: bold;
+  color: #F0EFF0;
+  background-color: #AF1C1C;
+  width: 70px;
+  text-align: center;
+  padding: 4px;
+  text-decoration: none;
+  font-family: "Poiret One";
+  border: solid;
+  border-radius: 75px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.Log_out:hover {
+  background-color: #8C1616;
 }
 
 /*colour pallette is #756867 (wood veneer), #D5D6D2 (sand dollar), #353C3F (charcoal), #FF8D3F (orange)*/
