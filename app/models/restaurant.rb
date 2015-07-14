@@ -3,9 +3,9 @@ class Restaurant
 
   property :id , Serial
   property :name , String
-  property :post_code , String, unique: true , message: 'Post code already exists'
+  property :place_id , String, unique: true , message: 'Restaurant already exists'
 
   has n, :tags, through: Resource
 
-  validates_presence_of :post_code, :name
+  validates_presence_of :place_id, :name
 end

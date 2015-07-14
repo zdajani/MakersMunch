@@ -5,10 +5,10 @@ feature 'viewing restaurants' do
   end
   before(:each) do
     Restaurant.create(name: 'Subway',
-                      post_code: 'SW3',
+                      place_id: 'SW3',
                       tags: [Tag.first_or_create(name: 'Sandwich')])
     Restaurant.create(name: 'Pizza Hut',
-                      post_code: 'SW4',
+                      place_id: 'SW4',
                       tags: [Tag.first_or_create(name: 'Italian Pizza')])
   end
 

@@ -2,7 +2,7 @@ feature 'filtering selected tags' do
 
   before(:each) do
     Restaurant.create(name: 'Pizza Hut',
-                      post_code: 'SW4',
+                      place_id: 'SW4',
                       tags: [Tag.first_or_create(name: 'Pizza')])
   end
 

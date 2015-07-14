@@ -13,7 +13,7 @@ class MakersMunch < Sinatra::Base
   end
 
   post '/restaurant/new' do
-    @restaurant = Restaurant.create(name: params[:name], post_code: params[:post_code])
+    @restaurant = Restaurant.create(name: params[:name], place_id: params[:place_id])
     tags = []
     tags << params[:tag1]
     tags << params[:tag2]

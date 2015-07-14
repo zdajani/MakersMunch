@@ -15,6 +15,6 @@ feature 'Creating Restaurants' do
     new_restaurant(restaurant)
     visit '/restaurant/new'
     new_restaurant(restaurant)
-    expect(page).to have_content 'Post code already exists'
+    expect(page).to have_content 'Restaurant already exists'
   end
 end
