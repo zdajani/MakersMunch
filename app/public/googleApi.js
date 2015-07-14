@@ -8,7 +8,7 @@ function getApiDetails(placeId) {
   map = new google.maps.Map(document.getElementById('map'), {
      center: makers,
      zoom: 15
-   });  
+   });
   var request = {
     placeId: placeId
   };
@@ -17,7 +17,7 @@ function getApiDetails(placeId) {
   service.getDetails(request, function(results, status) {
     html += '<div id="location">';
     html += "<div id='placeName'>" + results.name + "</div>";
-    if(results.photos[0]) {
+    if(results.photos) {
     photoUrl = results.photos[0].getUrl({maxWidth:1000, maxHeight: 1000});
     html += "<div id='photo'><img src='" + photoUrl + "' width = '200px' height = '200px'></div>";
   }
