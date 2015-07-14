@@ -5,9 +5,9 @@
    <style>
      html, body,
      #map-canvas {
-       height: 100%;
-       margin: 50px;
-       padding: 50px
+       height: 90%;
+       margin: 15px;
+       padding: 15px
      }
      .controls {
        margin-top: 16px;
@@ -44,7 +44,8 @@
 
 
  </head>
- <body onload="initialize()">
+ <body onload="initialize()" class='body'>
+  <h1 class="title"> Add your restaurant </h1>
    <div id="locationField">
     <form id="form" action="/restaurant/new" method="POST">
       <input id="address" placeholder="Location Finder" type="text" name='name'>
