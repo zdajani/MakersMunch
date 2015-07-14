@@ -1,40 +1,52 @@
-<html>
-  <head>
-    <link rel='stylesheet' type='text/css' href='/styles/styles.css'>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
-    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"> </script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-  </head>
   <body class= "body">
     <h1 id="title"> Munch </h1>
-  <%if current_user %>
-  <form method='post' action='/log_in'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form>
-  <%else%>
-    <a href="http://localhost:9292/user/new" class="button">Sign Up</a>
-    <a href="http://localhost:9292/log_in" class="log_button">Log In</a>
-  <%end%>
+    <br>
+    <%if current_user %>
+      <form method='post' action='/log_in'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log Out' class="Log_out">
+      </form>
+    <%else%>
+      <a href="/user/new" class="button">Sign Up</a>
+      <a href="/log_in" class="log_button">Log In</a>
+    <%end%>
 
-  <% if flash[:notice] %>
-    <div id='notice'>
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-  <div id='map'> </div>
-  <div id="boxed" style="overflow-y:scroll">
-   <% @restaurants.each do |restaurant| %>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
 
-  <script src='googleApi.js'> </script>
-      <script>
-      var place_id = '<%= restaurant.place_id%>';
-      getApiDetails(place_id);
-      </script>
+    <form action="/dropdown" method="post">
+      <select name="food_tags">
+        <option>Pizza</option>
+        <option>Pasta</option>
+        <option>Burger</option>
+        <option>Street Food</option>
+        <option>Chicken</option>
+        <option>Chinese</option>
+        <option>Sushi</option>
+        <option>Mexican</option>
+        <option>Japanese</option>
+        <option>Sandwich</option>
+        <option>Fast Food</option>
+        <option>Indian</option>
+        <option>Thai</option>
+        <option>Cafe</option>
+        <option>Pub</option>
+      </select>
+      <input type="submit" value="Find!">
+    </form>
+
+    <div id='map'> </div>
+    <div id="boxed" style="overflow-y:scroll">
+      <% @restaurants.each do |restaurant| %>
+        <script>
+          var place_id = '<%=restaurant.place_id%>';
+          getApiDetails(place_id);
+        </script>
       <% end %>
       </div>
     </div>
-  </div>
-
   </body>
 </html>

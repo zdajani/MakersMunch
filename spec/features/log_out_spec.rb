@@ -6,8 +6,7 @@ feature 'User log out' do
 
   scenario 'while being logged in' do
     log_in(user)
-    click_button 'Sign out'
-    expect(page).to have_content('Goodbye!')
+    click_button 'Log Out'
+    expect(current_path).to eq('/')
   end
-
 end

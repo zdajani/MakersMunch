@@ -3,7 +3,7 @@ feature 'User log in' do
  scenario 'with correct credentials' do
    user = create(:user)
    log_in(user)
-   expect(page).to have_content "Welcome, #{user.full_name}"
+   expect(current_path).to eq('/')
  end
 
   scenario 'with an incorrect credentials' do

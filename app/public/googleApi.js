@@ -6,10 +6,9 @@ function getApiDetails(placeId) {
   var html = '';
   var makers = new google.maps.LatLng(51.5173990,-0.0735900);
   map = new google.maps.Map(document.getElementById('map'), {
-      center: makers,
-      zoom: 15
-    });
-
+     center: makers,
+     zoom: 15
+   });  
   var request = {
     placeId: placeId
   };

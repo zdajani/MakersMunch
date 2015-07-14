@@ -1,8 +1,0 @@
-<form action="/dropdown" method="post">
-  <select name="food_tags">
-    <% @tags.each do |tag| %>
-      <option><%= tag.name %></option>
-    <% end %>
-  </select>
-  <input type="submit" value="Find!">
-</form>
