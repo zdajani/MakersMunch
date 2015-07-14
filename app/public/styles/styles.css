@@ -68,11 +68,11 @@
 
 #location {
   border: 1px solid #BFC0BD;
-  width: 960px;
+  width: 900px;
   height: 300px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
+  margin-top: 20px;
   border-radius: 10px;
   background-color: #BFC0BD;
   color: #31A2AC;
@@ -85,7 +85,7 @@
 
 #writing {
   float: right;
-  padding: 70px 100px;
+  padding: 70px 70px 20px 20px;
 }
 
 #placeName {
