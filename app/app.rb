@@ -9,7 +9,11 @@ class MakersMunch < Sinatra::Base
   use Rack::MethodOverride
 
   get '/restaurant/new' do
-    erb :'restaurant/new'
+    if current_user 
+      erb :'restaurant/new'
+    else
+      redirect '/'
+    end
   end
 
   post '/restaurant/new' do
