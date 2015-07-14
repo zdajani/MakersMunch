@@ -4,13 +4,21 @@
   background-color: #F0EFF0;
 }
 
-#title {
+/*#title {
   text-align: center;
   color: #AF1C1C;
   font-size: 75px;
   font-family: "Poiret One";
-  padding-left: 75px
+  padding-left: 68px
 
+}*/
+
+#title {
+  margin: 0 auto;
+  color: #AF1C1C;
+  font-size: 75px;
+  font-family: "Poiret One";
+  text-align: center;
 }
 
 .button:link, .button:visited {
@@ -56,7 +64,6 @@
 }
 
 #boxed {
-
   border: 5px solid #2F2F28;
   height: auto;
   width: 1000px;
@@ -128,7 +135,7 @@
   font-size: 30px;
   display: block;
   margin: auto;
-  padding-right: 25px;
+/*  padding-right: 25px;*/
 }
 
 .find {
@@ -150,6 +157,28 @@
 }
 
 .find:hover, .find:active {
+  background-color: #8C1616;
+}
+
+.add_button:link, .add_button:visited {
+  display: block;
+  font-weight: bold;
+  font-size: 20px;
+  color: #F0EFF0;
+  background-color: #AF1C1C;
+  width: 180px;
+  text-align: center;
+  padding: 4px;
+  text-decoration: none;
+  font-family: "Poiret One";
+  border: solid;
+  border-radius: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.add_button:hover, .add_button:active {
   background-color: #8C1616;
 }
 

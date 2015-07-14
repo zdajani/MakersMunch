@@ -39,20 +39,23 @@
         </select>
         <input type="submit" value="Filter" class="find">
       </form>
+      <% if current_user %>
+      <a href="/restaurant/new" class="add_button">Add a restaurant</a>
+      <% end %>
     </div>
     <div class="col-md-4"> </div>
   </div>
   <br>
 
     <div id='map'> </div>
-    <div id="boxed" style="overflow-y:scroll">
+      <div id="boxed" style="overflow-y:scroll">
       <% @restaurants.each do |restaurant| %>
+        <!-- <div id="location"> -->
         <script>
           var place_id = '<%=restaurant.place_id%>';
           getApiDetails(place_id);
         </script>
       <% end %>
       </div>
-    </div>
   </body>
 </html>
