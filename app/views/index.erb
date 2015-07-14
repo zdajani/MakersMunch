@@ -1,30 +1,28 @@
   <body class= "body">
     <h1 id="title"> Munch </h1>
     <br>
-  <%if current_user %>
-  <form method='post' action='/log_in'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form>
-  <%else%>
-    <a href="http://localhost:9292/user/new" class="button">Sign Up</a>
-    <a href="http://localhost:9292/log_in" class="log_button">Log In</a>
-  <%end%>
+    <%if current_user %>
+      
+    <%else%>
+      <a href="/user/new" class="button">Sign Up</a>
+      <a href="/log_in" class="log_button">Log In</a>
+    <%end%>
 
-  <% if flash[:notice] %>
-    <div id='notice'>
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-  <div id='map'> </div>
-  <div id="boxed" style="overflow-y:scroll">
-   <% @restaurants.each do |restaurant| %>
-      <script>
-      var place_id = '<%=restaurant.place_id%>';
-      getApiDetails(place_id);
-    </script>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <div id='map'> </div>
+    <div id="boxed" style="overflow-y:scroll">
+      <% @restaurants.each do |restaurant| %>
+        <script>
+          var place_id = '<%=restaurant.place_id%>';
+          getApiDetails(place_id);
+        </script>
       <% end %>
+      </div>
     </div>
-  </div>
   </body>
 </html>
