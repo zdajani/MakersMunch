@@ -7,6 +7,6 @@ feature 'User log out' do
   scenario 'while being logged in' do
     log_in(user)
     click_button 'Log Out'
-    expect(curent_path).to eq('/')
+    expect(current_path).to eq('/')
   end
 end
