@@ -7,5 +7,5 @@ class Restaurant
 
   has n, :tags, through: Resource
 
-  validates_presence_of :place_id, :name
+  validates_presence_of :name
 end
