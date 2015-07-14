@@ -11,3 +11,10 @@
   font-family: "Poiret One";
   text-align: center;
 }
+
+#my-form {
+  width: 600px;
+  position: absolute;
+  margin: 0px 0 0 -250px;
+  left: 50%;
+}
