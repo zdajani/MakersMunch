@@ -99,7 +99,11 @@ class MakersMunch < Sinatra::Base
 
   get '/tags/:name' do
     tag = Tag.all(name: params[:name])
-    @restaurants = tag ? tag.restaurants : []
+    if params[:name] == 'All'
+      @restaurants = Restaurant.all
+    else
+      @restaurants = tag ? tag.restaurants : []
+    end
     erb :index
   end
 
