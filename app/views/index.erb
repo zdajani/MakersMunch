@@ -22,19 +22,16 @@
       <%= flash[:notice] %>
     </div>
   <% end %>
+  <div id='map'> </div>
+  <div id="boxed" style="overflow-y:scroll">
+   <% @restaurants.each do |restaurant| %>
 
-  <div class="boxed" style="overflow-y:scroll">
-    <div id="location">
-      <div id='placeName'>The Culpeper</div>
-      <br>
-      <div id='photo'><img src='https://lh3.googleusercontent.com/-jOST9OJoiBk/VOxe4477pWI/AAAAAAAAAAY/hEyRQjAzmh4/w1000-h1000-k/' width = '300px' height = '240px'></div>
-      <div id="writing">
-        <span class="street-address">40 Commercial Street</span>, 
-        <span class="locality">London</span>
-        <span class="postal-code">E1 6LP</span>,
-        <span class="country-name">United Kingdom</span>
-        <div>020 7247 5371</div>
-        <div> Is it open right now?  Yes! </div>
+  <script src='googleApi.js'> </script>
+      <script>
+      var place_id = '<%= restaurant.place_id%>';
+      getApiDetails(place_id);
+      </script>
+      <% end %>
       </div>
     </div>
   </div>
