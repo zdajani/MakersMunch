@@ -6,7 +6,7 @@ feature 'User sign up' do
 
   scenario 'as a new user' do
     sign_up(user)
-    expect(page).to have_content("Welcome, #{user.full_name}")
+    expect(current_path).to eq('/')
   end
 
   scenario 'with a password that does not match' do
