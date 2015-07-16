@@ -29,20 +29,20 @@ function getApiDetails(placeId) {
                                + results.address_components[0].short_name +
                            " " + results.address_components[1].short_name +
                            " " + results.address_components[2].short_name + "</br>"
-                            if (results.address_components[6]) { + results.address_components[6].short_name } + "</div>";
+                            if (results.address_components[6]) { + results.address_components[6].short_name; } + "</div>";
     html += "<div>" + results.formatted_phone_number + "</div>";
-    html += "<div> Is it open right now? "
+    html += "<div> Is it open right now? ";
     if (results.opening_hours) {
       if
       (results.opening_hours.open_now === true) {
-        html += " Yes! </div>"
+        html += " Yes! </div>";
       }
       else {
-        html += " No! </div>"
+        html += " No! </div>";
       }
     }
 
-    html += "</div>"
+    html += "</div>";
     $('#boxed').append(html);
   });
 }
