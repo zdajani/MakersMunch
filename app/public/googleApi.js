@@ -15,7 +15,6 @@ function getApiDetails(placeId) {
 
   service = new google.maps.places.PlacesService(map);
   service.getDetails(request, function(results, status) {
-    console.log(results);
     html += '<div id="location">';
     html += "<div id='placeName'>" + results.name + "</div>";
     if(results.photos) {

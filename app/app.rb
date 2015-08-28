@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './app/data_mapper_setup.rb'
+require_relative './data_mapper_setup.rb'
 require 'sinatra/flash'
 
 class MakersMunch < Sinatra::Base
